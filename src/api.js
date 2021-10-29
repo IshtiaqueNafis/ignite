@@ -17,13 +17,13 @@ const currentDay = getCurrentDay();
 const currentDate = `${currentYear}-${currentMonth}-${currentDay}`
 const lastYear = `${currentYear - 1}-${currentMonth - 1}-${currentDay - 1}`
 const nextYear = `${currentYear + 1}-${currentMonth + 1}-${currentDay + 1}`
-console.log(currentDate)
+
 //endregion
 
 //popular games
+const api_key = "d0b32adbcd3144069ad2fa24acb1b28e"
+const popular_games = `games?key=${api_key}&dates${lastYear},${currentDate}&ordering=-rating&page_size=10`;
 
-const popular_games = `games?key=${process.env.REACT_APP_RAWG_API}&dates=${lastYear},${currentDate}&ordering=-rating&page_size=10`
 
- const popularGamesUrl = ()=> `${base_url}${popular_games}`
 
-console.log(popularGamesUrl())
+export const popularGamesUrl = () => `${base_url}${popular_games}`
