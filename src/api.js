@@ -23,7 +23,10 @@ const nextYear = `${currentYear + 1}-${currentMonth + 1}-${currentDay + 1}`
 //popular games
 const api_key = "d0b32adbcd3144069ad2fa24acb1b28e"
 const popular_games = `games?key=${api_key}&dates${lastYear},${currentDate}&ordering=-rating&page_size=10`;
-
+const upcoming_games = `games?key=${api_key}&dates${currentYear},${nextYear}&ordering=-added&page_size=10`;
+const new_games = `games?key=${api_key}&dates${lastYear},${currentDate}&ordering=-released&page_size=10`;
 
 
 export const popularGamesUrl = () => `${base_url}${popular_games}`
+export const UpcomingGamesUrl = () => `${base_url}${upcoming_games}`
+export const NewGamesUrl = () => `${base_url}${new_games}`

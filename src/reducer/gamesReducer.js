@@ -10,9 +10,12 @@ const gamesReducer = (state = initialState, action) => {
         case "FETCH_GAMES": {
             return {
                 ...state, // copy the current state and update the popular data.
-                popular: action.payload.popular
+                popular: action.payload.popular,
+                newGames: action.payload.newGames,
+                upcoming: action.payload.newGames
             }
         }
+
 
         default:
             return {...state}
