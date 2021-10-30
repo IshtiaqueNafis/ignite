@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createStore,applyMiddleware,compose} from 'redux'
-import rootReducer from "./reducer/rootReducer";
+import rootReducer from "./redux/reducer/rootReducer";
 import {Provider} from "react-redux";
 import thunk from "redux-thunk"; // provider works as a connection.
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

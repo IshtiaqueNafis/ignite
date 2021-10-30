@@ -11,8 +11,8 @@ const gamesReducer = (state = initialState, action) => {
             return {
                 ...state, // copy the current state and update the popular data.
                 popular: action.payload.popular,
-                newGames: action.payload.newGames,
-                upcoming: action.payload.newGames
+                newGames: action.payload.newData,
+                upcoming: action.payload.upcomingData
             }
         }
 
