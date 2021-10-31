@@ -39,10 +39,10 @@ this is where the games is coming from
     );
 };
 const GameList = styled(motion.div)`
-  padding: 0rem 5rem;
+  padding: 0 5rem;
 
   h2 {
-    padding: 5rem 0rem;
+    padding: 5rem 0;
   }
 `;
 const Games = styled(motion.div)`

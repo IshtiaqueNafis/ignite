@@ -4,7 +4,7 @@ import GlobalStyles from "./components/Global.styles";
 
 
 const App = () => (
-    <div className="App">
+    <div>
         <GlobalStyles/>
         <Home/>
     </div>
