@@ -14,17 +14,18 @@ const getCurrentDay = () => {
 const currentYear = new Date().getFullYear();
 const currentMonth = getCurrentMonth();
 const currentDay = getCurrentDay();
-const currentDate = `${currentYear}-${currentMonth}-${currentDay}`
-const lastYear = `${currentYear - 1}-${currentMonth - 1}-${currentDay - 1}`
-const nextYear = `${currentYear + 1}-${currentMonth + 1}-${currentDay + 1}`
+const currentDate = `${currentYear}-${currentMonth}-${currentDay}`;
+const lastYear = `${currentYear - 1}-${currentMonth}-${currentDay}`;
+const nextYear = `${currentYear + 1}-${currentMonth}-${currentDay}`;
 
 //endregion
 
 //popular games
-const api_key = "d0b32adbcd3144069ad2fa24acb1b28e"
-const popular_games = `games?key=${api_key}&dates${lastYear},${currentDate}&ordering=-rating&page_size=10`;
-const upcoming_games = `games?key=${api_key}&dates${currentYear},${nextYear}&ordering=-added&page_size=10`;
-const new_games = `games?key=${api_key}&dates${lastYear},${currentDate}&ordering=-released&page_size=10`;
+const key = "d0b32adbcd3144069ad2fa24acb1b28e"
+const key_url = `key=${key}`;
+const popular_games = `games?${key_url}&dates=${lastYear},${currentDate}&ordering=-rating&page_size=10`;
+const upcoming_games = `games?${key_url}&dates=${currentDate},${nextYear}&ordering=-added&page_size=10`;
+const new_games = `games?${key_url}&dates=${lastYear},${currentDate}&ordering=-released&page_size=10`;
 
 
 export const popularGamesUrl = () => `${base_url}${popular_games}`
