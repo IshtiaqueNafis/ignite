@@ -42,9 +42,9 @@ const GameDetail = () => {
                 </Description>
 
                 <div className="gallery">
-                    {/*{screen.results && screen.results.map(screen=>(*/}
-                    {/*    <img src={screen.image} alt="game"/>*/}
-                    {/*))}*/}
+                    {screen.results && screen.results.map(screen=>(
+                        <img src={screen.image} alt="game"/>
+                    ))}
                 </div>
             </Detail>
 

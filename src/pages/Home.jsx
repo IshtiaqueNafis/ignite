@@ -5,9 +5,14 @@ import styled from "styled-components";
 import {motion} from 'framer-motion/dist/framer-motion'
 import Game from "../components/Game";
 import GameDetail from "../components/GameDetail";
+import {useLocation} from "react-router-dom";
 
 
 const Home = () => {
+    const location = useLocation(); // ==> useLocation hook returns the location object that represents the current URL
+    const pathId = location.pathname.split("/")[2]; // --> so this is the path.name
+    //path is part of location.
+
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(loadgames())
@@ -24,8 +29,9 @@ this is where the games is coming from
     //endregion
 
     return (
+
         <GameList>
-            <GameDetail/>
+            {pathId && <GameDetail/>}
             <h2>Upcoming games </h2>
             <Games>
                 {upcoming.map(game => (
