@@ -17,6 +17,11 @@ const GlobalStyles = createGlobalStyle`
         background-color: darkgrey;
       }
     }
+
+    &::-webkit-scrollbar {
+      background: white;
+
+    }
   }
 
 

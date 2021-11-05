@@ -4,6 +4,7 @@ import {loadgames} from "../redux/actions/gamesActions";
 import styled from "styled-components";
 import {motion} from 'framer-motion/dist/framer-motion'
 import Game from "../components/Game";
+import GameDetail from "../components/GameDetail";
 
 
 const Home = () => {
@@ -24,6 +25,7 @@ this is where the games is coming from
 
     return (
         <GameList>
+            <GameDetail/>
             <h2>Upcoming games </h2>
             <Games>
                 {upcoming.map(game => (
