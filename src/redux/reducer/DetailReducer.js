@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
     game: {},
-    screenshots:{}
+    screenshots: {},
+    isLoading: true
 }
 
 const DetailsReducer = (state = INITIAL_STATE, action) => {
@@ -9,7 +10,14 @@ const DetailsReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 game: action.payload.game,
-                screen:action.payload.screen
+                screen: action.payload.screen,
+                isLoading: false
+            }
+        }
+        case 'LOADING_DETAIL': {
+            return {
+                ...state, // this means the program is loading.
+                isLoading: true
             }
         }
 
@@ -17,4 +25,4 @@ const DetailsReducer = (state = INITIAL_STATE, action) => {
             return {...state}
     }
 }
-export  default  DetailsReducer
+export default DetailsReducer

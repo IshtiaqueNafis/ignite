@@ -32,6 +32,7 @@ this is where the games is coming from
 
         <GameList>
             {pathId && <GameDetail/>}
+            {/*this means if path id is there go to game detail page*/}
             <h2>Upcoming games </h2>
             <Games>
                 {upcoming.map(game => (

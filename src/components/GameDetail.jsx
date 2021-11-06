@@ -5,7 +5,7 @@ import {motion} from 'framer-motion/dist/framer-motion'
 import {useSelector} from "react-redux";
 
 const GameDetail = () => {
-    const {screen, game} = useSelector(state => state.detail)
+    const {screen, game,isLoading} = useSelector(state => state.detail)
 
 
     //region const {screen, game}
@@ -18,6 +18,9 @@ const GameDetail = () => {
     //endregion
 
     return (
+        <>
+            {!isLoading && (
+                // when is loading is false then load the item.
         <CardShadow>
             <Detail>
                 <Stats>
@@ -42,15 +45,18 @@ const GameDetail = () => {
                 </Description>
 
                 <div className="gallery">
-                    {screen.results && screen.results.map(screen=>(
-                        <img src={screen.image} alt="game"/>
+                    {screen.results && screen.results.map(scr=>(
+                        <img key={scr.id} src={scr.image} alt="game"/>
                     ))}
                 </div>
             </Detail>
 
         </CardShadow>
+            )}
+        </>
     );
 };
+
 const CardShadow = styled(motion.div)`
   width: 100%;
   min-height: 100vh;
