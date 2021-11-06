@@ -3,9 +3,21 @@ import React from 'react';
 import styled from "styled-components";
 import {motion} from 'framer-motion/dist/framer-motion'
 import {useSelector} from "react-redux";
+import {useHistory} from "react-router-dom";
 
 const GameDetail = () => {
-    const {screen, game,isLoading} = useSelector(state => state.detail)
+    const history = useHistory();
+
+    //exit detail
+    const exitDetailHandler = (e) => {
+        const element = e.target;
+        if (element.classList.contains('shadow')) {
+            document.body.style.overflow = 'auto';
+            history.push('/'); // means it will go to this history. this will work as a acnhor tag
+        }
+    }
+
+    const {screen, game, isLoading} = useSelector(state => state.detail)
 
 
     //region const {screen, game}
@@ -21,37 +33,37 @@ const GameDetail = () => {
         <>
             {!isLoading && (
                 // when is loading is false then load the item.
-        <CardShadow>
-            <Detail>
-                <Stats>
-                    <div className="rating">
-                        <h3>{game.name}</h3>
-                        <p>Rating:{game.rating}</p>
-                    </div>
-                    <Info>
-                        <h3>Platforms</h3>
-                        <PlatForms>
-                            {game.platforms && game.platforms.map(data => (
-                                <h3 key={data.platform.id}>{data.platform.name}</h3>
+                <CardShadow className='shadow' onClick={exitDetailHandler}>
+                    <Detail>
+                        <Stats>
+                            <div className="rating">
+                                <h3>{game.name}</h3>
+                                <p>Rating:{game.rating}</p>
+                            </div>
+                            <Info>
+                                <h3>Platforms</h3>
+                                <PlatForms>
+                                    {game.platforms && game.platforms.map(data => (
+                                        <h3 key={data.platform.id}>{data.platform.name}</h3>
+                                    ))}
+                                </PlatForms>
+                            </Info>
+                        </Stats>
+                        <Media>
+                            <img src={game.background_image} alt={game.background_image}/>
+                        </Media>
+                        <Description>
+                            <p>{game.description_raw}</p>
+                        </Description>
+
+                        <div className="gallery">
+                            {screen.results && screen.results.map(scr => (
+                                <img key={scr.id} src={scr.image} alt="game"/>
                             ))}
-                        </PlatForms>
-                    </Info>
-                </Stats>
-                <Media>
-                    <img src={game.background_image} alt={game.background_image}/>
-                </Media>
-                <Description>
-                    <p>{game.description_raw}</p>
-                </Description>
+                        </div>
+                    </Detail>
 
-                <div className="gallery">
-                    {screen.results && screen.results.map(scr=>(
-                        <img key={scr.id} src={scr.image} alt="game"/>
-                    ))}
-                </div>
-            </Detail>
-
-        </CardShadow>
+                </CardShadow>
             )}
         </>
     );
